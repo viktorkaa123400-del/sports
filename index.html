@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport v kině | Živě na plátně</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #071426;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+header {
+  background: #08182d;
+  border-bottom: 1px solid #263b57;
+  padding: 22px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.logo span { color: #ffb52e; }
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 22px;
+  font-size: 14px;
+}
+
+nav a:hover { color: #ffb52e; }
+
+.hero {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(3,13,28,.95), rgba(3,13,28,.35)),
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1800")
+    center/cover;
+}
+
+.hero-content {
+  max-width: 700px;
+  padding: 100px 0;
+}
+
+.eyebrow {
+  color: #ffb52e;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+h1 {
+  font-size: clamp(45px, 7vw, 82px);
+  line-height: 1.05;
+  margin: 22px 0;
+}
+
+h1 span { color: #ffb52e; }
+
+.hero p {
+  color: #d1dbea;
+  font-size: 19px;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 27px;
+  background: #ffb52e;
+  color: #101a29;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.button:hover { background: #ffc85c; }
+
+section { padding: 85px 0; }
+
+.section-title {
+  font-size: 42px;
+  margin: 12px 0;
+}
+
+.description {
+  color: #b9c8da;
+  max-width: 680px;
+  margin-bottom: 35px;
+}
+
+.experience {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 25px;
+}
+
+.big-photo {
+  min-height: 390px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.big-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.photo-text {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  z-index: 2;
+  text-shadow: 0 2px 10px #000;
+}
+
+.photo-text h3 { font-size: 25px; }
+
+.info-box {
+  background: #10233d;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #243c5a;
+}
+
+.info-box .icon { font-size: 35px; }
+
+.info-box h3 {
+  margin: 10px 0;
+  font-size: 22px;
+}
+
+.info-box p { color: #b9c8da; }
+
+.sports-section { background: #0b1b30; }
+
+.sports {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sport {
+  background: #10233d;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #263d5b;
+}
+
+.sport .icon { font-size: 42px; }
+
+.sport h3 {
+  font-size: 23px;
+  margin: 12px 0;
+}
+
+.sport p { color: #b9c8da; }
+
+.snacks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.snacks img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.snacks p {
+  color: #b9c8da;
+  margin-top: 15px;
+}
+
+.form-section {
+  background: linear-gradient(#0b1b30, #071426);
+}
+
+.form-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 45px;
+  align-items: start;
+}
+
+.form-layout p {
+  color: #b9c8da;
+  margin-top: 15px;
+}
+
+form {
+  background: #10233d;
+  padding: 32px;
+  border-radius: 15px;
+  border: 1px solid #263d5b;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 15px 0 7px;
+}
+
+input, select {
+  width: 100%;
+  padding: 13px;
+  background: #08182d;
+  color: white;
+  border: 1px solid #405674;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+form button { margin-top: 22px; }
+
+footer {
+  padding: 28px 0;
+  border-top: 1px solid #263b57;
+  color: #aabbd0;
+  font-size: 14px;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media(max-width: 750px) {
+  nav { flex-direction: column; gap: 15px; }
+  nav a { margin: 0 7px; }
+  .experience, .sports, .snacks, .form-layout {
+    grid-template-columns: 1fr;
+  }
+  .big-photo { min-height: 300px; }
+  .section-title { font-size: 32px; }
+  section { padding: 60px 0; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">SPORT <span>V KINĚ</span></div>
+      <div>
+        <a href="#zazitek">Zážitek</a>
+        <a href="#sporty">Sporty</a>
+        <a href="#obcerstveni">Občerstvení</a>
+        <a href="#formular">Dotazník</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Živě na velkém plátně</div>
+      <h1>Zápas, který chceš <span>zažít!</span></h1>
+      <p>
+        Sleduj své oblíbené sportovní přenosy na velkém plátně.
+        Užij si skvělý obraz, pohodlí kina a atmosféru,
+        kterou při sledování doma nezažiješ.
+      </p>
+      <a href="#formular" class="button">CHCI SE ZAPOJIT →</a>
+    </div>
+  </div>
+</section>
+
+<section id="zazitek">
+  <div class="container">
+    <div class="eyebrow">Více než obyčejné sledování</div>
+    <h2 class="section-title">Sportovní atmosféra jako na stadionu.</h2>
+    <p class="description">
+      Užij si důležité sportovní momenty společně s ostatními fanoušky.
+      Tentokrát pohodlně v kině a na opravdu velkém plátně.
+    </p>
+
+    <div class="experience">
+      <div class="big-photo">
+        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1000&q=85" alt="Kino a velké plátno">
+        <div class="photo-text">
+          <h3>Velké plátno. Velké emoce.</h3>
+          <p>Každý gól bude stát za to!</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="info-box">
+          <div class="icon">📣</div>
+          <h3>Fandíme společně</h3>
+          <p>Zažij napětí zápasu a radost z každého vítězství s ostatními fanoušky.</p>
+        </div>
+
+        <div class="info-box">
+          <div class="icon">🎬</div>
+          <h3>Pohodlí kina</h3>
+          <p>Užij si sportovní přenos v pohodlném prostředí s perfektním výhledem.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sports-section" id="sporty">
+  <div class="container">
+    <div class="eyebrow">Co můžeš sledovat?</div>
+    <h2 class="section-title">Vyber si svůj sport.</h2>
+    <p class="description">
+      Vybereme přenosy podle toho, co fanoušky nejvíce zajímá.
+    </p>
+
+    <div class="sports">
+      <div class="sport">
+        <div class="icon">⚽</div>
+        <h3>Fotbal</h3>
+        <p>Důležité zápasy, góly a atmosféra, kterou chceš sdílet s ostatními.</p>
+      </div>
+
+      <div class="sport">
+        <div class="icon">🏒</div>
+        <h3>Hokej</h3>
+        <p>Napínavé souboje a společné fandění až do poslední sekundy.</p>
+      </div>
+
+      <div class="sport">
+        <div class="icon">🏅</div>
+        <h3>Další sporty</h3>
+        <p>Prostor dostanou i jiné sportovní přenosy podle zájmu návštěvníků.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="obcerstveni">
+  <div class="container">
+    <div class="snacks">
+      <img src="https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=1000&q=85" alt="Popcorn v kině">
+
+      <div>
+        <div class="eyebrow">K zápasu něco dobrého</div>
+        <h2 class="section-title">Bez občerstvení by to nebylo ono.</h2>
+        <p>
+          Kromě sportovního přenosu si můžeš dopřát také
+          klasické kino občerstvení. Protože fandění a něco
+          dobrého k tomu? To prostě patří k sobě.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="formular">
+  <div class="container">
+    <div class="form-layout">
+      <div>
+        <div class="eyebrow">Zajímá nás tvůj názor</div>
+        <h2 class="section-title">Šel/šla bys do toho?</h2>
+        <p>
+          Pomoz nám zjistit, jestli by lidé měli o sledování
+          živých sportovních přenosů v kině zájem.
+          Vyplnění zabere jen chvilku.
+        </p>
+      </div>
+
+      <form id="interestForm">
+        <label for="name">Jméno</label>
+        <input id="name" type="text" placeholder="Tvoje jméno" required>
+
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="tvuj@email.cz" required>
+
+        <label for="sport">Jaký sport by tě zajímal?</label>
+        <select id="sport" required>
+          <option value="">Vyber sport</option>
+          <option>Fotbal</option>
+          <option>Hokej</option>
+          <option>Jiné sporty</option>
+        </select>
+
+        <label for="price">Kolik bys byl/a ochotný/á zaplatit?</label>
+        <select id="price" required>
+          <option value="">Vyber cenu</option>
+          <option>Do 100 Kč</option>
+          <option>100–150 Kč</option>
+          <option>150–200 Kč</option>
+          <option>Více než 200 Kč</option>
+        </select>
+
+        <button class="button" type="submit">ODESLAT ODPOVĚDI →</button>
+        <p style="font-size:12px;color:#b9c8da">
+          Ukázkový formulář pro školní projekt. Odpovědi se nikam neodesílají.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <strong>SPORT V KINĚ · ŽIVĚ NA PLÁTNĚ</strong>
+    <span>Školní projekt</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById("interestForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Děkujeme za vyplnění! ❤️ Toto je pouze ukázkový formulář.");
+});
+</script>
+
+</body>
+</html>
